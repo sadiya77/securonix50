@@ -7,7 +7,6 @@ package proautomation;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 import java.util.concurrent.TimeUnit;
 
@@ -60,7 +59,7 @@ driver = new ChromeDriver();
         
         //run policy
       
-        showjobstatus();
+        //showjobstatus();
         
          accesspolicy();
          
@@ -102,11 +101,66 @@ driver = new ChromeDriver();
         driver.findElement(By.xpath("//*[@id='jobsListDiv']/div[2]/div/div[1]/div/a")).click();
                 }
    public static void accesspolicy(){
-        /* WebElement searchpol = driver.findElement(By.name("searchPoliciesText"));
+       /* WebElement searchpol = driver.findElement(By.name("searchPoliciesText"));
         searchpol.clear();
-        searchpol.sendKeys("Accounts that belong to terminated user");
+        searchpol.sendKeys("Accounts that belong to terminated user");*/
         
-        //Click on Search
+        WebElement searchpol2=driver.findElement(By.name("searchPoliciesText"));
+        searchpol2.clear();
+        searchpol2.sendKeys("Accounts that dont have Users");
+        
+       /* WebElement searchpol3=driver.findElement(By.name("searchPoliciesText"));
+        searchpol3.clear();
+        searchpol3.sendKeys("Accounts where user dont have manager");
+        
+        WebElement searchpol4=driver.findElement(By.name("searchPoliciesText"));
+        searchpol4.clear();
+        searchpol4.sendKeys("Accounts with Domain Admin Access");
+        
+        WebElement searchpol5=driver.findElement(By.name("searchPoliciesText"));
+        searchpol5.clear();
+        searchpol5.sendKeys("Accounts with Privileged Access on Active Directory");
+        
+        WebElement searchpol6=driver.findElement(By.name("searchPoliciesText"));
+        searchpol6.clear();
+        searchpol6.sendKeys("Contractors with remote login access");
+        
+        WebElement searchpol7=driver.findElement(By.name("searchPoliciesText"));
+        searchpol7.clear();
+        searchpol7.sendKeys("Contractors with upcoming contract end date");
+        
+        WebElement searchpol8=driver.findElement(By.name("searchPoliciesText"));
+        searchpol8.clear();
+        searchpol8.sendKeys("Employees with upcoming terminations within 30 days");
+        
+        WebElement searchpol9=driver.findElement(By.name("searchPoliciesText"));
+        searchpol9.clear();
+        searchpol9.sendKeys("Recent Hires");
+        
+        WebElement searchpol10=driver.findElement(By.name("searchPoliciesText"));
+        searchpol10.clear();
+        searchpol10.sendKeys("Recent Transfers");
+        
+        WebElement searchpol11=driver.findElement(By.name("searchPoliciesText"));
+        searchpol11.clear();
+        searchpol11.sendKeys("SOD Access Violation");
+        
+        WebElement searchpol12=driver.findElement(By.name("searchPoliciesText"));
+        searchpol12.clear();
+        searchpol12.sendKeys("Terminated Contractors");
+        
+        WebElement searchpol13=driver.findElement(By.name("searchPoliciesText"));
+        searchpol13.clear();
+        searchpol13.sendKeys("Terminated Employees");
+        
+         WebElement searchpol14=driver.findElement(By.name("searchPoliciesText"));
+        searchpol14.clear();
+        searchpol14.sendKeys("Users with Bad Performance Reviews");
+        
+         WebElement searchpol15=driver.findElement(By.name("searchPoliciesText"));
+        searchpol15.clear();
+        searchpol15.sendKeys("Users with Sunset Date in next 30 days");*/
+        
          //Click on Search
         WebElement searchbutton = driver.findElement(By.id("search"));
         searchbutton.click();
@@ -122,7 +176,7 @@ driver = new ChromeDriver();
         //WebElement playbutton = we.findElement(By.xpath(".."));
         //playbutton.click();
         
-        String runPolicyXpath = "//*[@id='2']/span[@class='icon_glsy_resume']";
+        String runPolicyXpath = "//*[@id='1']/span[@class='icon_glsy_resume']";
         WebElement we = driver.findElement(By.xpath(runPolicyXpath));
         //System.out.println(we.isDisplayed());
         WebElement parent = driver.findElement(By.xpath(runPolicyXpath + "/.."));
@@ -139,7 +193,7 @@ driver = new ChromeDriver();
         
         
         //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);     
-        driver.findElement(By.xpath("//*[@id='allPolicyJobsDiv']/div[1]/div[2]/table/thead/tr/th[1]/span")).click();*/
+        driver.findElement(By.xpath("//*[@id='allPolicyJobsDiv']/div[1]/div[2]/table/thead/tr/th[1]/span")).click();
         
         //Click on policy job details
         driver.findElement(By.xpath("//*[@id='allPolicyJobsDiv']/div[1]/div[1]/table/tbody/tr[1]/td[10]/span")).click();
@@ -153,6 +207,8 @@ driver = new ChromeDriver();
         
         //click on filter.
         driver.findElement(By.xpath("//*[@id='page1']/div[1]/div/div/button[1]")).click();
+        
+        driver.findElement(By.xpath("//*[@id='mCSB_4_container']/ul/li")).click();
     }
 }
 
