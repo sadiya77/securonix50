@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,7 +56,7 @@ driver = new ChromeDriver();
         refreshpage();
         
 //Analytics-Policy
-        analytics();
+      /*  analytics();
         
         //run policy
       
@@ -63,10 +64,11 @@ driver = new ChromeDriver();
         
          accesspolicy();
          
-         refreshpage();
+         refreshpage();*/
         
         //CLick on dashboard
         dashboard();
+        scrolldown();
     }
          public static void refreshpage() {
         //Refresh page
@@ -89,7 +91,7 @@ driver = new ChromeDriver();
         driver.findElement(By.xpath("//*[@id='loginForm']/input[2]")).click();
         
     }
-    
+   /* 
     public static void analytics(){
         driver.findElement(By.xpath("//*[@id='Analytics']/a")).click();
         
@@ -103,13 +105,13 @@ driver = new ChromeDriver();
    public static void accesspolicy(){
        /* WebElement searchpol = driver.findElement(By.name("searchPoliciesText"));
         searchpol.clear();
-        searchpol.sendKeys("Accounts that belong to terminated user");*/
+        searchpol.sendKeys("Accounts that belong to terminated user");
         
         WebElement searchpol2=driver.findElement(By.name("searchPoliciesText"));
         searchpol2.clear();
         searchpol2.sendKeys("Accounts that dont have Users");
         
-       /* WebElement searchpol3=driver.findElement(By.name("searchPoliciesText"));
+        WebElement searchpol3=driver.findElement(By.name("searchPoliciesText"));
         searchpol3.clear();
         searchpol3.sendKeys("Accounts where user dont have manager");
         
@@ -159,7 +161,7 @@ driver = new ChromeDriver();
         
          WebElement searchpol15=driver.findElement(By.name("searchPoliciesText"));
         searchpol15.clear();
-        searchpol15.sendKeys("Users with Sunset Date in next 30 days");*/
+        searchpol15.sendKeys("Users with Sunset Date in next 30 days");
         
          //Click on Search
         WebElement searchbutton = driver.findElement(By.id("search"));
@@ -198,17 +200,32 @@ driver = new ChromeDriver();
         //Click on policy job details
         driver.findElement(By.xpath("//*[@id='allPolicyJobsDiv']/div[1]/div[1]/table/tbody/tr[1]/td[10]/span")).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-     }
+     }*/
     
     public static void dashboard(){
-        WebElement clickdash=driver.findElement(By.id("Dashboard"));
+       /* WebElement clickdash=driver.findElement(By.id("Dashboard"));
         clickdash.click();
         driver.findElement(By.xpath("//*[@id='mlnkForm0']/a/div/div[1]/div/div")).click();
         
         //click on filter.
         driver.findElement(By.xpath("//*[@id='page1']/div[1]/div/div/button[1]")).click();
         
-        driver.findElement(By.xpath("//*[@id='mCSB_4_container']/ul/li")).click();
+        driver.findElement(By.xpath("//*[@id='mCSB_4_container']/ul/li")).click();*/
+        
+        //clcik on side bar
+        driver.findElement(By.id("sidebar-toggle")).click();
+        
+        //Click on access dashboard
+        driver.findElement(By.xpath("//*[@id='collapseListGroup1']/ul/li[2]/a")).click();
+        
+        //click on policy name-nonuser
+        driver.findElement(By.xpath("//*[@id='mCSB_7_container']/div[1]/div")).click();
     }
+        
+        public static void scrolldown(){
+            JavascriptExecutor javascript = (JavascriptExecutor) driver;  
+        javascript.executeScript("window.scrollBy(0,1200)", "");   
+        }
+    
 }
 
