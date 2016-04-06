@@ -37,19 +37,20 @@ void clickandwait() throws InterruptedException {
         refreshpage();
         
     //Analytics-Policy
-      /*  analytics();
+       analytics();
         
-    
+    //run policy
+      //terminateduser();
       
-    //showjobstatus();
-        
-    terminateduser();
+    //showjobstatus
+        showjobstatus();
+        refreshpolicy();
          
-    refreshpage();*/
+   // refreshpage();
         
     //CLick on dashboard
-        dashboard();
-        scrolldown();
+       /* dashboard();
+        scrolldown();*/
     }
          public static void refreshpage() {
         //Refresh page
@@ -83,7 +84,7 @@ void clickandwait() throws InterruptedException {
     public static void showjobstatus(){
         driver.findElement(By.xpath("//*[@id='jobsListDiv']/div[2]/div/div[1]/div/a")).click();
                 }
-   public static void terminateduser(){
+  /* public static void terminateduser(){
         WebElement searchpol = driver.findElement(By.name("searchPoliciesText"));
         searchpol.clear();
         searchpol.sendKeys("Accounts that belong to terminated user");
@@ -450,7 +451,7 @@ void clickandwait() throws InterruptedException {
         //click on filter.
         driver.findElement(By.xpath("//*[@id='page1']/div[1]/div/div/button[1]")).click();
         
-        driver.findElement(By.xpath("//*[@id='mCSB_4_container']/ul/li")).click();*/
+        driver.findElement(By.xpath("//*[@id='mCSB_4_container']/ul/li")).click();
         
         //clcik on side bar
         driver.findElement(By.id("sidebar-toggle")).click();
@@ -465,7 +466,12 @@ void clickandwait() throws InterruptedException {
         public static void scrolldown(){
             JavascriptExecutor javascript = (JavascriptExecutor) driver;  
         javascript.executeScript("window.scrollBy(0,1200)", "");   
-        }
+        }*/
     
-}
+        public static void refreshpolicy(){
+            String refpolxpath="//*[@id='allPolicyJobsDiv']/div[1]/div[2]/table/thead/tr/th[1]/span[@class='fa fa-fw fa-16 fa-refresh']";
+            WebElement parent = driver.findElement(By.xpath(refpolxpath + "/.."));
+            parent.click();
+        }
 
+}
