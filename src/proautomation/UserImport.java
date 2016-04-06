@@ -1,10 +1,13 @@
 package proautomation;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class UserImport {
@@ -49,27 +52,35 @@ public static void main(String[] args) throws Throwable{
   
   WebElement connectionname = driver.findElement(By.xpath("//*[@id='i_u_connectionname']"));
   connectionname.clear();
-  connectionname.sendKeys("HRFile");
+  connectionname.sendKeys("GoogleFile");
   
   WebElement action = driver.findElement(By.xpath(".//*[@id='userImportConfigForm']/li[1]/div[3]/div/div[3]/div/a"));
   action.click();
   
+  JavascriptExecutor javascript = (JavascriptExecutor) driver;  
+        javascript.executeScript("window.scrollBy(0,300)", ""); 
   
-  WebElement browse = driver.findElement(By.xpath(".//*[@id='dataFileImport']/div/input[2]"));
-  Thread.sleep(4000);
-  browse.sendKeys("C:\\Securonix\\securonix_home\\import\\in\\HRData665.csv");
-  //browse.click();
-  //Thread.sleep(4000);
+   // WebElement browse = driver.findElement(By.xpath("//*[@id='dataFileImport']/div/input[2]"));
+    
+    //browse.click();
+    //Thread.sleep(4000);
+   // StringSelection ss;
+    //ss = new StringSelection("G:\\4.6.11\\QA\\Data_TOGO\\GoogleUsers.csv");
+    //Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+
+      WebElement browse=driver.findElement(By.xpath("//*[@id='importfilename']"));
+      browse.sendKeys("F:\\5.0_Application\\securonix_home\\import\\in\\GoogleUsers.csv");
+    //browse.click();
+    //Thread.sleep(4000);
   
   
   WebElement filename = driver.findElement(By.xpath(".//*[@id='endpoint']"));
-  filename.sendKeys("HRData665.csv");
+  filename.sendKeys("GoogleUsers.csv");
   
   WebElement delimeter = driver.findElement(By.xpath("//*[@id='columnDelimiter']"));
   delimeter.sendKeys(",");
-  
-  JavascriptExecutor javascript = (JavascriptExecutor) driver;  
-        javascript.executeScript("window.scrollBy(0,1200)", ""); 
+   javascript = (JavascriptExecutor) driver;  
+        javascript.executeScript("window.scrollBy(0,1200)", "");
   
   WebElement header = driver.findElement(By.xpath("//*[@id='connTypeDiv']/div/div[3]/div[1]/div/a"));
   header.click();
@@ -101,6 +112,7 @@ public static void main(String[] args) throws Throwable{
   WebElement ManageResources = driver.findElement(By.xpath(".//*[@id='mlnkForm1']/a/div/div[1]/div/div"));
   ManageResources.click();
   
+}
 }
 
 /*public static void userImport(){
@@ -195,4 +207,4 @@ public static void main(String[] args) throws Throwable{
          driver.findElement(By.xpath("//*[@id='uImportForm']/div/input[3]")).click();
 
     }*/
-}
+
